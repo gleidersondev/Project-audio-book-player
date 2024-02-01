@@ -2,16 +2,16 @@ const audio = document.getElementById('audio-capitulo');
 const btnAnterior = document.getElementById('anterior');
 const btnOuvirAudio = document.getElementById('play-pause');
 const btnProximo = document.getElementById('proximo');
+const elementoCapitulo = document.getElementById('capitulo');
 
 let emReproducao = false;
 let capitulo = 1;
-let atualizaSrc = `./books/dom-casmurro/${capitulo}.mp3`;
-console.log(atualizaSrc);
+console.log('o valor de capitulo é', capitulo);
 
 // console.log(elemento);
 // console.log(capituloAtual);
 // console.log(btnOuvirAudio);
-// console.log(audio.attributes.src.nodeValue);
+console.log(audio);
 
 const reproducaoDeAudio = () => {
   if (!emReproducao) {
@@ -28,16 +28,20 @@ const reproducaoDeAudio = () => {
 
 const proximoCapitulo = () => {
   let elemento = audio.attributes.src.nodeValue;
+  console.log('elemento é', elemento);
   let capituloAtual = parseInt(elemento.match(/\d+/g)[0]);
   emReproducao = false;
 
   if (capituloAtual <= 9) {
     capitulo += 1;
-    console.log(capitulo);
-    audio.attributes.src = atualizaSrc;
-    console.log(audio.attributes.src = atualizaSrc);
+    let atualizaSrc = `./books/dom-casmurro/${capitulo}.mp3`;
+    console.log(atualizaSrc);
+    elementoCapitulo.innerText = `Capítulo ${capitulo}`;
+    audio.src = atualizaSrc;
+    console.log(audio.src = atualizaSrc);
   } else {
     capitulo = 1;
+    elementoCapitulo.innerText = 'Capítulo 1';
   }
 
   reproducaoDeAudio();
