@@ -8,11 +8,6 @@ let emReproducao = false;
 let capitulo = 1;
 console.log('o valor de capitulo é', capitulo);
 
-// console.log(elemento);
-// console.log(capituloAtual);
-// console.log(btnOuvirAudio);
-console.log(audio);
-
 const reproducaoDeAudio = () => {
   if (!emReproducao) {
     emReproducao = true;
@@ -27,13 +22,14 @@ const reproducaoDeAudio = () => {
 };
 
 const proximoCapitulo = () => {
-  let elemento = audio.attributes.src.nodeValue;
-  console.log('elemento é', elemento);
-  let capituloAtual = parseInt(elemento.match(/\d+/g)[0]);
+  // capitulo += 1;
+  // let elemento = audio.attributes.src.nodeValue;
+  let atualizaCapitulo = capitulo +=1;
+  console.log('o valor de elemento é', atualizaCapitulo);
+  // let capituloAtual = parseInt(atualizaCapitulo.match(/\d+/g)[0]);
   emReproducao = false;
 
-  if (capituloAtual <= 9) {
-    capitulo += 1;
+  if (atualizaCapitulo <= 10) {
     let atualizaSrc = `./books/dom-casmurro/${capitulo}.mp3`;
     console.log(atualizaSrc);
     elementoCapitulo.innerText = `Capítulo ${capitulo}`;
@@ -42,6 +38,7 @@ const proximoCapitulo = () => {
   } else {
     capitulo = 1;
     elementoCapitulo.innerText = 'Capítulo 1';
+    audio.src = './books/dom-casmurro/1.mp3';
   }
 
   reproducaoDeAudio();
