@@ -6,44 +6,70 @@ const elementoCapitulo = document.getElementById('capitulo');
 
 let emReproducao = false;
 let capitulo = 1;
+let qtdCliques = 0;
 console.log('o valor de capitulo é', capitulo);
 
+
 const reproducaoDeAudio = () => {
-  if (!emReproducao) {
-    emReproducao = true;
-    audio.play();
-    btnOuvirAudio.classList.add('bi', 'bi-play-circle');
-  } else {
-    audio.pause();
-    btnOuvirAudio.classList.remove('bi', 'bi-play-circle');
-    emReproducao = false;
-    btnOuvirAudio.classList.add('bi', 'bi-pause-circle');
-  }
+  emReproducao = true;
+  audio.play();
+  btnOuvirAudio.classList.remove('bi', 'bi-play-circle');
+  btnOuvirAudio.classList.add('bi', 'bi-pause-circle');
+};
+
+const reproducaoPausada = () => {
+  emReproducao = false;
+  audio.pause();
+  btnOuvirAudio.classList.remove('bi', 'bi-pause-circle');
+  btnOuvirAudio.classList.add('bi', 'bi-play-circle');
 };
 
 const proximoCapitulo = () => {
-  // capitulo += 1;
-  // let elemento = audio.attributes.src.nodeValue;
-  let atualizaCapitulo = capitulo +=1;
-  console.log('o valor de elemento é', atualizaCapitulo);
-  // let capituloAtual = parseInt(atualizaCapitulo.match(/\d+/g)[0]);
-  emReproducao = false;
-
-  if (atualizaCapitulo <= 10) {
+  capitulo +=1;
+  
+  if(emReproducao && capitulo <= 10) {
     let atualizaSrc = `./books/dom-casmurro/${capitulo}.mp3`;
-    console.log(atualizaSrc);
-    elementoCapitulo.innerText = `Capítulo ${capitulo}`;
     audio.src = atualizaSrc;
-    console.log(audio.src = atualizaSrc);
+    elementoCapitulo.innerText = `Capítulo ${capitulo}`;
+    
+    reproducaoDeAudio();
+
+  } else if (emReproducao && capitulo >= 11) {
+    capitulo = 1;
+    elementoCapitulo.innerText = 'Capítulo 1';
+    audio.src = './books/dom-casmurro/1.mp3';
+
+    reproducaoDeAudio();
+
+  } else if (!emReproducao && capitulo <= 10) {
+    let atualizaSrc = `./books/dom-casmurro/${capitulo}.mp3`;
+    audio.src = atualizaSrc;
+    elementoCapitulo.innerText = `Capítulo ${capitulo}`;
+
+    reproducaoPausada();
+
   } else {
     capitulo = 1;
     elementoCapitulo.innerText = 'Capítulo 1';
     audio.src = './books/dom-casmurro/1.mp3';
+
+    reproducaoPausada();
+    
   }
 
-  reproducaoDeAudio();
 };
 
 btnOuvirAudio.addEventListener("click", reproducaoDeAudio);
 btnProximo.addEventListener("click", proximoCapitulo);
+
+const cliques = () => {
+  qtdCliques += 1;
+
+  if (qtdCliques === 2) {
+    reproducaoPausada();
+    qtdCliques = 0;
+  }
+};
+
+btnOuvirAudio.addEventListener("click", cliques);
 
