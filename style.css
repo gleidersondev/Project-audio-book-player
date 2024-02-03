@@ -40,8 +40,18 @@ button {
   font-size: 3rem;
 }
 
+#anterior:hover, #proximo:hover {
+  font-size: 4rem;
+  color: rgba(209, 209, 168, 0.301);
+}
+
 #play-pause {
   font-size: 4rem;
+}
+
+#play-pause:hover {
+  font-size: 5rem;
+  color: rgba(201, 201, 154, 0.301);
 }
 
 #container-botoes {
