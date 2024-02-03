@@ -6,6 +6,10 @@ Bem-vindo ao repositório do meu projeto Audio Book Player!  Este é o primeiro 
 
 O objetivo principal do projeto foi desenvolver um aplicativo  web com interface simples, capaz de reproduzir áudio books com funcionalidades essenciais para controlar a reprodução de faixas de áudio, como trocar de faixa, voltar à faixa anterior e avançar para a próxima faixa. 
 
+## Preview
+
+![meu projeto](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGg0a2x1MzJnNHNncWkxYjk1bWRnOHo2dmxoejBnZ2FmcjUzMGhrMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GOE2gPeuShQAnyQ8Eg/giphy.gif)
+
 
 ## Estrutura do Repositório
 
