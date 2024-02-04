@@ -20,16 +20,12 @@ O objetivo principal do projeto foi desenvolver um aplicativo  web com interface
 
 ## Instruções
 
-1. Clone este repositório em sua máquina local.
+1. Caso queira realizar o projeto, clone este repositório em sua máquina local usando git clone:
 
 * `git clone git@github.com:gleidersondev/Project-audio-book-player.git`
 
 2. Abra o arquivo `index.html` em seu navegador.
 3. Interaja com o aplicativo tocador de áudio book para trocar de faixa, voltar à faixa anterior ou avançar para a próxima faixa.
-
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests com melhorias, correções de bugs, ou qualquer outra forma de contribuição.
 
 
 *Projeto proposto por Hashtag Treinamentos - Curso Intensivão de Javascript.*
